@@ -11,6 +11,7 @@ import {
   InputGroup,
   Button,
   Spacer,
+  Textarea,
 } from "@chakra-ui/react";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { VscLocation } from "react-icons/vsc";
@@ -47,7 +48,20 @@ function Contact() {
           </Text>
           {datas.map((data, idx) => {
             return (
-              <HStack key={idx} spacing={10} mt={8}>
+              <HStack
+                key={idx}
+                spacing={10}
+                mt={8}
+                cursor={"pointer"}
+                transition={"all 1s"}
+                h={"40px"}
+                w={"250px"}
+                rounded={"lg"}
+                _hover={{
+                  transform: "scale(1.01)",
+                  bg: "blue.600",
+                }}
+              >
                 <Box textColor={"blue.400"} fontSize={"2xl"}>
                   {data.icon}
                 </Box>
@@ -57,7 +71,7 @@ function Contact() {
               </HStack>
             );
           })}
-          <HStack spacing={12} mt={24} cursor={"pointer"}>
+          <HStack spacing={12} mt={20} cursor={"pointer"}>
             <Center
               textColor={"white"}
               fontSize={"xl"}
@@ -152,28 +166,25 @@ function Contact() {
             </Text>
           </Box>
           <Box mt={2}>
-            <Input
+            <Textarea
               placeholder="Enter your message"
-              w={"350px"}
-              cursor={"pointer"}
+              rounded={"lg"}
+              h={"160px"}
               ml={4}
+              cursor={"pointer"}
             />
           </Box>
-          <Box>
-            <HStack mt={28}>
-              <Box></Box>
-              <Spacer />
-              <Box>
-                <Button
-                  bg={"#2D75FF"}
-                  transition={"all 1s"}
-                  textColor={"white"}
-                  _hover={{ bg: "#2D75FF" }}
-                >
-                  Send message
-                </Button>
-              </Box>
-            </HStack>
+          <Box ml={32}>
+            <Button
+              bg={"#2D75FF"}
+              textColor={"white"}
+              mt={3}
+              px={20}
+              transition={"all 1s"}
+              _hover={{ bg: "blue.500" }}
+            >
+              Send message
+            </Button>
           </Box>
         </Box>
       </SimpleGrid>
