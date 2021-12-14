@@ -7,15 +7,19 @@ import { onAuthStateChanged } from "firebase/auth";
 const navbars = [
   {
     title: "Home",
+    path: "/home",
   },
   {
     title: "Product",
+    path: "/home",
   },
   {
     title: "Feature",
+    path: "/home",
   },
   {
     title: "Contact us",
+    path: "/contact",
   },
 ];
 
@@ -73,7 +77,9 @@ function Navbar() {
                   setActive(navbar.title);
                 }}
               >
-                <Text>{navbar.title}</Text>
+                <Link href={navbar.path} passHref>
+                  <Text>{navbar.title}</Text>
+                </Link>
               </HStack>
             );
           })}
