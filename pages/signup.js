@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Text,
@@ -12,6 +12,7 @@ import {
   Checkbox,
   HStack,
   Button,
+  Spinner,
 } from "@chakra-ui/react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utilities/firebse-config";
@@ -21,7 +22,7 @@ import { BsKey } from "react-icons/bs";
 function Signup() {
   const email = useRef(null);
   const pass = useRef(null);
-
+  const [spin, setSpin] = useState(false);
   const signUp = async () => {
     const emails = email.current.value;
     const password = pass.current.value;
@@ -32,6 +33,7 @@ function Signup() {
     } catch (err) {
       console.log(err.message);
     }
+    setSpin(true);
   };
 
   return (
@@ -69,15 +71,21 @@ function Signup() {
                 </Text>
               </HStack>
 
-              <Button
-                colorScheme={"blue"}
-                mt={6}
-                w="300px"
-                cursor={"pointer"}
-                onClick={signUp}
-              >
-                Sign up
-              </Button>
+              {spin ? (
+                <Box py={12} px={24}>
+                  <Spinner size={"md"} />
+                </Box>
+              ) : (
+                <Button
+                  colorScheme={"blue"}
+                  mt={6}
+                  w="300px"
+                  cursor={"pointer"}
+                  onClick={signUp}
+                >
+                  Sign up
+                </Button>
+              )}
             </Box>
           </Box>
         </SimpleGrid>
