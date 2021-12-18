@@ -4,7 +4,7 @@ import { AiOutlineLaptop } from "react-icons/ai";
 
 function Landingcard() {
   return (
-    <Box bg={"black"}>
+    <Box>
       <Center>
         <Text textColor={"black"} fontWeight={"bold"} fontSize={"5xl"}>
           Core Features
