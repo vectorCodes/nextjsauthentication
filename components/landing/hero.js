@@ -7,6 +7,7 @@ import {
   GridItem,
   Spacer,
   Button,
+  Divider,
 } from "@chakra-ui/react";
 import Fade from "react-reveal/Fade";
 function Hero() {
@@ -55,7 +56,7 @@ function Hero() {
             </GridItem>
           </SimpleGrid>
           <Fade left>
-            <SimpleGrid columns={12} py={24}>
+            <SimpleGrid columns={12} py={24} pb={20}>
               <GridItem colSpan={6}>
                 <Box>
                   <Image src="/assest/program.svg" alt="svg" />
@@ -94,6 +95,7 @@ function Hero() {
               </GridItem>
             </SimpleGrid>
           </Fade>
+          <Divider />
         </Box>
       </Box>
     </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box, Text, HStack, Spacer, Button } from "@chakra-ui/react";
+import { Box, Text, HStack, Spacer, Button, Center } from "@chakra-ui/react";
 import Link from "next/link";
+import { BsToggle2On } from "react-icons/bs";
 import { auth } from "../utilities/firebse-config";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -14,8 +15,8 @@ const navbars = [
     path: "/home",
   },
   {
-    title: "Feature",
-    path: "/home",
+    title: "pricing",
+    path: "/price",
   },
   {
     title: "Contact us",
@@ -61,7 +62,9 @@ function Navbar() {
           >
             Nexus
           </Text>
+
           <Spacer />
+
           {navbars.map((navbar, idx) => {
             const isActive = navbar.title === active;
             return (
@@ -71,7 +74,7 @@ function Navbar() {
                 fontWeight={"semibold"}
                 fontSize={"lg"}
                 transition="all 0.6s"
-                _hover={{ transform: isActive ? "scale(1.09)" : "" }}
+                _hover={{ transform: "scale(1.09)" }}
                 cursor={"pointer"}
                 onClick={() => {
                   setActive(navbar.title);
@@ -85,10 +88,10 @@ function Navbar() {
           })}
           <Spacer />
           {user ? (
-            <Box>
+            <HStack>
               <Text fontWeight={"semibold"}>{user.email}</Text>
               <Button onClick={signOut}>sign out</Button>
-            </Box>
+            </HStack>
           ) : (
             register.map((r, idx) => {
               const isActive = r.title === active;
@@ -106,7 +109,7 @@ function Navbar() {
                   }}
                 >
                   <Link href={r.path} passHref>
-                    <Text>{r.title}</Text>
+                    <Button colorScheme={"purple"}>{r.title}</Button>
                   </Link>
                 </HStack>
               );
