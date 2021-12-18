@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Text,
@@ -12,21 +12,26 @@ import {
   Checkbox,
   HStack,
   Button,
+  Spinner,
   useToast,
 } from "@chakra-ui/react";
 import { auth } from "../utilities/firebse-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsKey } from "react-icons/bs";
+import Link from "next/link";
 function Login() {
   const emails = useRef(null);
   const pass = useRef(null);
+  const [spin, setSpin] = useState(false);
   const toast = useToast();
 
   const logIn = async () => {
     const email = emails.current.value;
     const password = pass.current.value;
+
     try {
+      setSpin(true);
       await signInWithEmailAndPassword(auth, email, password);
       window.location.href = "/";
     } catch (err) {
@@ -37,7 +42,7 @@ function Login() {
         duration: 2000,
         isClosable: true,
       });
-      console.log(err.mesage);
+      setSpin(false);
     }
   };
 
@@ -76,15 +81,26 @@ function Login() {
                 </Text>
               </HStack>
 
-              <Button
-                colorScheme={"blue"}
-                mt={6}
-                w="300px"
-                cursor={"pointer"}
-                onClick={logIn}
-              >
-                Log in
-              </Button>
+              {spin ? (
+                <Box py={12} px={24}>
+                  <Spinner />
+                </Box>
+              ) : (
+                <Button
+                  colorScheme={"blue"}
+                  mt={6}
+                  w="300px"
+                  cursor={"pointer"}
+                  onClick={logIn}
+                >
+                  Log in
+                </Button>
+              )}
+              <Box mt={4} cursor={"pointer"}>
+                <Link href={"/signup"} passHref>
+                  <Text textColor={"white"}>Dont have an account?</Text>
+                </Link>
+              </Box>
             </Box>
           </Box>
         </SimpleGrid>

@@ -13,7 +13,9 @@ import {
   HStack,
   Button,
   Spinner,
+  useToast,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utilities/firebse-config";
 import { AiOutlineMail } from "react-icons/ai";
@@ -22,18 +24,26 @@ import { BsKey } from "react-icons/bs";
 function Signup() {
   const email = useRef(null);
   const pass = useRef(null);
+  const toast = useToast();
   const [spin, setSpin] = useState(false);
   const signUp = async () => {
     const emails = email.current.value;
     const password = pass.current.value;
     try {
+      setSpin(true);
       await createUserWithEmailAndPassword(auth, emails, password);
 
       window.location.href = "/";
     } catch (err) {
-      console.log(err.message);
+      toast({
+        title: "Login failed.",
+        description: `${err.message}`,
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+      setSpin(false);
     }
-    setSpin(true);
   };
 
   return (
@@ -46,7 +56,7 @@ function Signup() {
           <Box>
             <Box ml={24} mt={6}>
               <Text textColor={"white"} fontWeight={"bold"} fontSize={"2xl"}>
-                Create your account{" "}
+                Create your account
               </Text>
               <Text textColor={"gray.300"}>
                 Created for developers by developers
@@ -86,6 +96,11 @@ function Signup() {
                   Sign up
                 </Button>
               )}
+              <Box mt={4} cursor={"pointer"}>
+                <Link href={"/login"} passHref>
+                  <Text textColor={"white"}>All ready have an account?</Text>
+                </Link>
+              </Box>
             </Box>
           </Box>
         </SimpleGrid>
