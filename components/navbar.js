@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Box, Text, HStack, Spacer, Button, Center } from "@chakra-ui/react";
+import { Box, Text, HStack, Spacer, Button } from "@chakra-ui/react";
 import Link from "next/link";
-import { BsToggle2On } from "react-icons/bs";
 import { auth } from "../utilities/firebse-config";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -51,7 +50,7 @@ function Navbar() {
   };
 
   return (
-    <Box bg="white">
+    <Box>
       <Box>
         <HStack spacing={6}>
           <Text
