@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, SimpleGrid, Text, Center } from "@chakra-ui/react";
 import { AiOutlineLaptop } from "react-icons/ai";
-import { FaReact } from "react-icons/fa";
+import { FaReact, FaAngular, FaVuejs, FaBootstrap } from "react-icons/fa";
 
 function Landingcard() {
   return (
@@ -108,11 +108,10 @@ function Landingcard() {
                 rounded: "full",
                 transform: "rotate(360deg)",
               }}
-              p={4}
+              p={5}
             >
-              {" "}
-              <Box textColor={"white"} fontSize={"3xl"} px={1}>
-                <AiOutlineLaptop />
+              <Box textColor={"white"} fontSize={"3xl"}>
+                <FaAngular />
               </Box>
             </Box>
             <Box
@@ -121,11 +120,11 @@ function Landingcard() {
               fontSize={"2xl"}
               mt={4}
             >
-              <Text>Built-with Bootstrap 5</Text>
+              <Text>Angular Js</Text>
             </Box>
             <Box mt={4}>
-              <Text textColor={"gray.400"}>
-                Template is based on latest version of Bootstrap 5
+              <Text textColor={"gray.500"}>
+                Angular is a Javascript Framework
               </Text>
             </Box>
           </Box>
@@ -157,10 +156,10 @@ function Landingcard() {
                 rounded: "full",
                 transform: "rotate(360deg) ",
               }}
-              p={4}
+              p={5}
             >
-              <Box textColor={"white"} fontSize={"3xl"} px={1}>
-                <AiOutlineLaptop />
+              <Box textColor={"white"} fontSize={"3xl"}>
+                <FaVuejs />
               </Box>
             </Box>
             <Box
@@ -169,12 +168,13 @@ function Landingcard() {
               fontSize={"2xl"}
               mt={4}
             >
-              <Text>Fully Responsive</Text>
+              <Text>Vue Js</Text>
             </Box>
             <Box mt={4}>
               <Text textColor={"gray.400"}>
-                Xpeedo is fully responsive template on all screensize and modern
-                browsers
+                Vue.js is an open-source model–view–viewmodel front end
+                JavaScript framework for building user interfaces and
+                single-page applications
               </Text>
             </Box>
           </Box>
@@ -208,11 +208,10 @@ function Landingcard() {
                 rounded: "full",
                 transform: "rotate(360deg)",
               }}
-              p={4}
+              p={5}
             >
-              {" "}
-              <Box textColor={"white"} fontSize={"3xl"} px={1}>
-                <AiOutlineLaptop />
+              <Box textColor={"white"} fontSize={"3xl"}>
+                <FaBootstrap />
               </Box>
             </Box>
             <Box
@@ -221,11 +220,12 @@ function Landingcard() {
               fontSize={"2xl"}
               mt={4}
             >
-              <Text>Built-with Bootstrap 5</Text>
+              <Text>Bootstrap</Text>
             </Box>
             <Box mt={4}>
-              <Text textColor={"gray.400"}>
-                Template is based on latest version of Bootstrap 5
+              <Text textColor={"gray.500"}>
+                Bootstrap is a free and open-source CSS framework directed at
+                responsive, mobile-first front-end web development.
               </Text>
             </Box>
           </Box>
