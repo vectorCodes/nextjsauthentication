@@ -10,6 +10,15 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import Fade from "react-reveal/Fade";
+import Lottie from "react-lottie";
+import Developer from "../../animation/developer.json";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: Developer,
+};
+
 function Hero() {
   return (
     <div>
@@ -51,7 +60,12 @@ function Hero() {
             <Spacer />
             <GridItem colSpan={6}>
               <Box>
-                <Image src="/assest/website.svg" alt="photo" />
+                <Lottie
+                  options={defaultOptions}
+                  height={"500"}
+                  width={"400"}
+                  isClickToPauseDisabled
+                />
               </Box>
             </GridItem>
           </SimpleGrid>

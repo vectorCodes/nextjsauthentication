@@ -11,7 +11,7 @@ const navbars = [
   },
   {
     title: "Product",
-    path: "/home",
+    path: "/product",
   },
   {
     title: "pricing",
