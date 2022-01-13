@@ -47,18 +47,25 @@ function Signup() {
   };
 
   return (
-    <Box bgGradient={"linear(to-l, blue.500,purple.500)"} h="100vh" py={24}>
+    <Box
+      bgGradient={"linear(to-l, blue.500,purple.500)"}
+      py={{ base: "73px", lg: "140px" }}
+    >
       <Box m="0 auto" maxW={"5xl"}>
-        <SimpleGrid columns={2}>
-          <Box>
+        <SimpleGrid columns={{ base: 1, lg: 2 }}>
+          <Box d={{ base: "none", lg: "flex" }}>
             <Image src="/assest/register.svg" alt="register" />
           </Box>
           <Box>
-            <Box ml={24} mt={6}>
-              <Text textColor={"white"} fontWeight={"bold"} fontSize={"2xl"}>
+            <Box ml={24} mt={{ base: 0, lg: 6 }}>
+              <Text
+                textColor={"white"}
+                fontWeight={"bold"}
+                fontSize={{ base: "lg", lg: "2xl" }}
+              >
                 Create your account
               </Text>
-              <Text textColor={"gray.300"}>
+              <Text textColor={"gray.300"} fontSize={{ base: "sm" }}>
                 Created for developers by developers
               </Text>
               <Stack spacing={4} mt={6} w="300px">
