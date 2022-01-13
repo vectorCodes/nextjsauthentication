@@ -34,24 +34,28 @@ const datas = [
 function Contact() {
   //   const [icon, setIcon] = useState(0);
   return (
-    <Box bg="#04044A" py={12} px={24} h="100vh">
-      <SimpleGrid columns={2} maxW={"5xl"} spacing={32}>
+    <Box bg="#04044A" py={12} px={24}>
+      <SimpleGrid columns={{ base: 1, lg: 2 }} maxW={"5xl"} spacing={32}>
         <Box>
-          <Text textColor={"white"} fontSize={"5xl"} fontWeight={"bold"}>
+          <Text
+            textColor={"white"}
+            fontSize={{ base: "3xl", lg: "5xl" }}
+            fontWeight={"bold"}
+          >
             Get a quote
           </Text>
-          <Text textColor={"white"} fontSize={"sm"} mt={6}>
+          <Text textColor={"white"} fontSize={{ base: "xs", lg: "sm" }} mt={6}>
             Fill up the form and our team will get back
           </Text>
-          <Text textColor={"white"} fontSize={"sm"} pb={16}>
+          <Text textColor={"white"} fontSize={"sm"} pb={{ base: 8, lg: 16 }}>
             to you within 24 hours.
           </Text>
           {datas.map((data, idx) => {
             return (
               <HStack
                 key={idx}
-                spacing={10}
-                mt={8}
+                spacing={{ base: 6, lg: 10 }}
+                mt={{ base: 4, lg: 8 }}
                 cursor={"pointer"}
                 transition={"all 1s"}
                 h={"40px"}
@@ -71,7 +75,11 @@ function Contact() {
               </HStack>
             );
           })}
-          <HStack spacing={12} mt={20} cursor={"pointer"}>
+          <HStack
+            spacing={{ base: 8, lg: 12 }}
+            mt={{ base: 12, lg: 20 }}
+            cursor={"pointer"}
+          >
             <Center
               textColor={"white"}
               fontSize={"xl"}
@@ -117,7 +125,12 @@ function Contact() {
             </HStack>
           </HStack>
         </Box>
-        <Box bg="white" rounded={10} mt={4} p={8}>
+        <Box
+          bg="white"
+          rounded={10}
+          mt={{ base: 1, lg: 4 }}
+          p={{ base: 6, lg: 8 }}
+        >
           <Box>
             <Text textColor={"blue.900"} ml={4}>
               Your Name
@@ -169,17 +182,17 @@ function Contact() {
             <Textarea
               placeholder="Enter your message"
               rounded={"lg"}
-              h={"160px"}
+              h={{ base: "80px", lg: "160px" }}
               ml={4}
               cursor={"pointer"}
             />
           </Box>
-          <Box ml={32}>
+          <Box ml={{ base: "8", lg: 32 }}>
             <Button
               bg={"#2D75FF"}
               textColor={"white"}
               mt={3}
-              px={20}
+              px={{ base: 10, lg: 20 }}
               transition={"all 1s"}
               _hover={{ bg: "blue.500" }}
             >

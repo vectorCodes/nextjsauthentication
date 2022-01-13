@@ -49,7 +49,7 @@ function Signup() {
   return (
     <Box
       bgGradient={"linear(to-l, blue.500,purple.500)"}
-      py={{ base: "73px", lg: "140px" }}
+      py={{ base: "73px", lg: "142px" }}
     >
       <Box m="0 auto" maxW={"5xl"}>
         <SimpleGrid columns={{ base: 1, lg: 2 }}>
