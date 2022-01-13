@@ -8,8 +8,8 @@ function Landingcard() {
     <Box position={"relative"}>
       <Box
         w={"500px"}
-        top={"40%"}
-        left={"20%"}
+        top={{ base: "30%", lg: "40%" }}
+        left={{ base: "-5%", lg: "20%" }}
         h={"300px"}
         position={"absolute"}
         borderRadius={"50% 20% 40% 80%"}
@@ -19,7 +19,11 @@ function Landingcard() {
         bgGradient={"radial-gradient(circle at 50% 50% ,blue.700,#9A0680)"}
       ></Box>
       <Center>
-        <Text textColor={"black"} fontWeight={"bold"} fontSize={"5xl"}>
+        <Text
+          textColor={"black"}
+          fontWeight={"bold"}
+          fontSize={{ base: "4xl", lg: "5xl" }}
+        >
           Core Features
         </Text>
       </Center>
@@ -32,11 +36,22 @@ function Landingcard() {
         ></Box>
       </Center>
       <Center>
-        <Text textColor={"gray.500"} fontSize={"lg"} mt={6}>
+        <Text
+          textColor={"gray.500"}
+          fontSize={"lg"}
+          mt={6}
+          px={{ base: 8, lg: "none" }}
+        >
           Comes with all essential features, elements and page you need.
         </Text>
       </Center>
-      <SimpleGrid columns={4} m={"0 auto"} maxW={"6xl"} spacing={4} mt={8}>
+      <SimpleGrid
+        columns={{ base: 2, lg: 4 }}
+        m={"0 auto"}
+        maxW={{ base: "4xl", lg: "6xl" }}
+        spacing={4}
+        mt={8}
+      >
         <Box role="group">
           <Box
             p={6}

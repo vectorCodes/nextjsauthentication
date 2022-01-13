@@ -23,14 +23,17 @@ function Hero() {
   return (
     <div>
       <Box>
-        <Box px={24} py={24}>
-          <SimpleGrid columns={12} pb={10}>
+        <Box px={24} py={{ base: 12, lg: 24 }}>
+          <SimpleGrid
+            columns={{ base: 0.2, lg: 12 }}
+            px={{ base: 1, lg: "none" }}
+          >
             <GridItem colSpan={5}>
               <Box>
                 <Box>
                   <Text
                     fontWeight={"bold"}
-                    fontSize={"6xl"}
+                    fontSize={{ base: "4xl", lg: "6xl" }}
                     bgGradient={"linear(to-l, blue.500, purple.500)"}
                     bgClip={"text"}
                   >
@@ -43,6 +46,7 @@ function Hero() {
                     noOfLines={5}
                     fontWeight={"semibold"}
                     textColor={"black"}
+                    mt={{ base: 4, lg: "none" }}
                   >
                     It has survived not only five centuries, but also the leap
                     into electronic typesetting, remaining essentially
@@ -70,7 +74,7 @@ function Hero() {
             </GridItem>
           </SimpleGrid>
           <Fade left>
-            <SimpleGrid columns={12} py={24} pb={20}>
+            <SimpleGrid columns={{ base: 0.5, lg: 12 }} py={24} pb={20}>
               <GridItem colSpan={6}>
                 <Box>
                   <Image src="/assest/program.svg" alt="svg" />
@@ -82,9 +86,10 @@ function Hero() {
                   <Box>
                     <Text
                       fontWeight={"bold"}
-                      fontSize={"6xl"}
+                      fontSize={{ base: "4xl", lg: "6xl" }}
                       bgGradient={"linear(to-l, blue.500, purple.500)"}
                       bgClip={"text"}
+                      mt={{ base: 4, lg: "none" }}
                     >
                       LEARN HOW TO CODE.
                     </Text>
@@ -95,6 +100,7 @@ function Hero() {
                       noOfLines={5}
                       fontWeight={"semibold"}
                       textColor={"black"}
+                      mt={{ base: 4, lg: "none" }}
                     >
                       It has survived not only five centuries, but also the leap
                       into electronic typesetting, remaining essentially

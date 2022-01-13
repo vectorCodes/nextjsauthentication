@@ -1,8 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Box, Text, HStack, Spacer, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  HStack,
+  Spacer,
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Stack,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import { auth } from "../utilities/firebse-config";
 import { onAuthStateChanged } from "firebase/auth";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const navbars = [
   {
@@ -37,10 +52,9 @@ const register = [
 function Navbar() {
   const [user, setUser] = useState(null);
   const [active, setActive] = useState("Home");
-
+  const [hamburger, setHamburger] = useState();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
       setUser(user);
     });
   }, []);
@@ -52,7 +66,14 @@ function Navbar() {
   return (
     <Box>
       <Box>
-        <HStack spacing={6}>
+        <Box d={{ base: "block", lg: "none" }} cursor={"pointer"}>
+          <GiHamburgerMenu
+            onClick={() => {
+              setHamburger(true);
+            }}
+          />
+        </Box>
+        <HStack spacing={6} d={{ base: "none", lg: "flex" }}>
           <Text
             textColor={"blackAlpha.800"}
             fontSize={"3xl"}
@@ -115,6 +136,73 @@ function Navbar() {
             })
           )}
         </HStack>
+      </Box>
+      <Box>
+        <Drawer
+          onClose={() => {
+            setHamburger(false);
+          }}
+          isOpen={hamburger}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerHeader borderBottomWidth="1px" fontSize={"3xl"}>
+              Nexus
+            </DrawerHeader>
+            <DrawerBody>
+              <Stack cursor={"pointer"}>
+                <Link passHref href={"/"}>
+                  <Text
+                    _hover={{
+                      bg: "teal",
+                      p: 1,
+                      rounded: "lg",
+                      w: "110px",
+                    }}
+                  >
+                    Home
+                  </Text>
+                </Link>
+                <Link passHref href={"/product"}>
+                  <Text
+                    _hover={{
+                      bg: "teal",
+                      p: 1,
+                      rounded: "lg",
+                      w: "110px",
+                    }}
+                  >
+                    Product
+                  </Text>
+                </Link>
+                <Link passHref href={"/price"}>
+                  <Text
+                    _hover={{
+                      bg: "teal",
+                      p: 1,
+                      rounded: "lg",
+                      w: "110px",
+                    }}
+                  >
+                    Pricing
+                  </Text>
+                </Link>
+                <Link passHref href={"/contact"}>
+                  <Text
+                    _hover={{
+                      bg: "teal",
+                      p: 1,
+                      rounded: "lg",
+                      w: "110px",
+                    }}
+                  >
+                    Contact
+                  </Text>
+                </Link>
+              </Stack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </Box>
     </Box>
   );
