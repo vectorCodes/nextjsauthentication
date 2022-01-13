@@ -71,7 +71,9 @@ function Navbar() {
             onClick={() => {
               setHamburger(true);
             }}
+            userSelect="none"
           />
+          <Spacer />
         </Box>
         <HStack spacing={6} d={{ base: "none", lg: "flex" }}>
           <Text
@@ -207,34 +209,46 @@ function Navbar() {
                     Contact
                   </Text>
                 </Link>
-                <HStack spacing={20} fontWeight={"bold"} fontSize={"xl"}>
-                  <Link passHref href={"/signup"}>
-                    <Text
-                      _hover={{
-                        bg: "blue.400",
-                        p: 1,
-                        rounded: "lg",
-                        w: "90px",
-                        textColor: "white",
-                      }}
-                    >
-                      Sign up
-                    </Text>
-                  </Link>
-                  <Link passHref href={"/login"}>
-                    <Text
-                      _hover={{
-                        bg: "blue.400",
-                        p: 1,
-                        rounded: "lg",
-                        w: "70px",
-                        textColor: "white",
-                      }}
-                    >
-                      Log in
-                    </Text>
-                  </Link>
-                </HStack>
+
+                {user ? (
+                  <Box d={{ base: "block", lg: "none" }}>
+                    <HStack spacing={10}>
+                      <Button onClick={signOut} colorScheme={"blue"}>
+                        Sign out
+                      </Button>
+                      <Text fontWeight={"semibold"}>{user.email}</Text>
+                    </HStack>
+                  </Box>
+                ) : (
+                  <HStack spacing={20} fontWeight={"bold"} fontSize={"xl"}>
+                    <Link passHref href={"/signup"}>
+                      <Text
+                        _hover={{
+                          bg: "blue.400",
+                          p: 1,
+                          rounded: "lg",
+                          w: "90px",
+                          textColor: "white",
+                        }}
+                      >
+                        Sign up
+                      </Text>
+                    </Link>
+                    <Link passHref href={"/login"}>
+                      <Text
+                        _hover={{
+                          bg: "blue.400",
+                          p: 1,
+                          rounded: "lg",
+                          w: "70px",
+                          textColor: "white",
+                        }}
+                      >
+                        Log in
+                      </Text>
+                    </Link>
+                  </HStack>
+                )}
               </Stack>
             </DrawerBody>
           </DrawerContent>
