@@ -8,6 +8,13 @@ const defaultOptions = {
 };
 
 const Product = () => {
-  return <Lottie options={defaultOptions} height={600} width={400} />;
+  return (
+    <Lottie
+      options={defaultOptions}
+      height={600}
+      width={400}
+      isClickToPauseDisabled
+    />
+  );
 };
 export default Product;
