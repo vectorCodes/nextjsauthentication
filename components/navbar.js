@@ -153,11 +153,13 @@ function Navbar() {
               <Stack cursor={"pointer"}>
                 <Link passHref href={"/"}>
                   <Text
+                    fontWeight={"bold"}
                     _hover={{
-                      bg: "teal",
+                      bg: "blue.400",
                       p: 1,
                       rounded: "lg",
-                      w: "110px",
+                      w: "100px",
+                      textColor: "white",
                     }}
                   >
                     Home
@@ -165,11 +167,13 @@ function Navbar() {
                 </Link>
                 <Link passHref href={"/product"}>
                   <Text
+                    fontWeight={"bold"}
                     _hover={{
-                      bg: "teal",
+                      bg: "blue.400",
                       p: 1,
                       rounded: "lg",
-                      w: "110px",
+                      w: "100px",
+                      textColor: "white",
                     }}
                   >
                     Product
@@ -177,11 +181,13 @@ function Navbar() {
                 </Link>
                 <Link passHref href={"/price"}>
                   <Text
+                    fontWeight={"bold"}
                     _hover={{
-                      bg: "teal",
+                      bg: "blue.400",
                       p: 1,
                       rounded: "lg",
-                      w: "110px",
+                      w: "100px",
+                      textColor: "white",
                     }}
                   >
                     Pricing
@@ -189,16 +195,46 @@ function Navbar() {
                 </Link>
                 <Link passHref href={"/contact"}>
                   <Text
+                    fontWeight={"bold"}
                     _hover={{
-                      bg: "teal",
+                      bg: "blue.400",
                       p: 1,
                       rounded: "lg",
-                      w: "110px",
+                      w: "100px",
+                      textColor: "white",
                     }}
                   >
                     Contact
                   </Text>
                 </Link>
+                <HStack spacing={20} fontWeight={"bold"} fontSize={"xl"}>
+                  <Link passHref href={"/signup"}>
+                    <Text
+                      _hover={{
+                        bg: "blue.400",
+                        p: 1,
+                        rounded: "lg",
+                        w: "90px",
+                        textColor: "white",
+                      }}
+                    >
+                      Sign up
+                    </Text>
+                  </Link>
+                  <Link passHref href={"/login"}>
+                    <Text
+                      _hover={{
+                        bg: "blue.400",
+                        p: 1,
+                        rounded: "lg",
+                        w: "70px",
+                        textColor: "white",
+                      }}
+                    >
+                      Log in
+                    </Text>
+                  </Link>
+                </HStack>
               </Stack>
             </DrawerBody>
           </DrawerContent>

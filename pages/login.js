@@ -47,10 +47,13 @@ function Login() {
   };
 
   return (
-    <Box bgGradient={"linear(to-l, blue.500,green.500)"} h="100vh" py={24}>
+    <Box
+      bgGradient={"linear(to-l, blue.500,green.500)"}
+      py={{ base: 14, lg: 36 }}
+    >
       <Box m="0 auto" maxW={"5xl"}>
-        <SimpleGrid columns={2}>
-          <Box>
+        <SimpleGrid columns={{ base: 1, lg: 2 }}>
+          <Box d={{ base: "none", lg: "flex" }}>
             <Image src="/assest/sign.svg" alt="register" />
           </Box>
           <Box>
