@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Center,
@@ -10,7 +10,6 @@ import {
   InputLeftElement,
   InputGroup,
   Button,
-  Spacer,
   Textarea,
 } from "@chakra-ui/react";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
@@ -32,7 +31,6 @@ const datas = [
 ];
 
 function Contact() {
-  //   const [icon, setIcon] = useState(0);
   return (
     <Box bg="#04044A" py={12} px={24}>
       <SimpleGrid columns={{ base: 1, lg: 2 }} maxW={"5xl"} spacing={32}>
